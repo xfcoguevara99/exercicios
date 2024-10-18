@@ -1,13 +1,8 @@
 #coding: utf-8
 import math as math
 def obtencaoDados(i):
-    #dados_por_inmovel = []
     dados_do_inmovel = input(f"Ingresse o numero de pessoas seguido do consumo total do inmovel {i+1}: ").split()
-    print(dados_do_inmovel)
     dados_do_inmovel[0],dados_do_inmovel[1] = dados_do_inmovel[1],dados_do_inmovel[0]
-    #numero_pessoas_no_inmovel = input(f"Entre com o numero de pessoas no inmovel {i+1}: ")
-    #consumo_no_inmovel = input(f"Informe o consumo no inmovel {i+1}: ")
-    #almacenamentoDados(dados_do_inmovel,dados_por_inmovel)
     return dados_do_inmovel
 
 def almacenamentoDados(dado,memoria):
@@ -25,10 +20,6 @@ def CalculoModificacaoDosDadosCidade(lista_com_dados):
         for j in range(numero_de_inmoveis_na_cidade):
             lista_com_dados[i][j][0] = consumoPessoaNoInmovel(lista_com_dados[i][j])
 
-
-
-
-
 if __name__ == "__main__":
     numero_inmoveis_na_cidade = int(input("Ingresse o numero de inmoveis na cidade: "))
     dados_cidades = []
@@ -39,14 +30,21 @@ if __name__ == "__main__":
             dados_inmoveis_por_cidade.append(dados_recibidos_inmovel)
         dados_cidades.append(dados_inmoveis_por_cidade)
         numero_inmoveis_na_cidade = int(input("Ingresse o numero de inmoveis na cidade: "))
-    print(dados_cidades)
+    print(dados_cidades, end = "\n")
     
     CalculoModificacaoDosDadosCidade(dados_cidades)
-    print(dados_cidades)
-
-    numero_da_cidade = len(dados_cidades) 
+    
+    print(dados_cidades,end = "\n")
+    numero_da_cidade = len(dados_cidades)
+    dados_reorganizados = []
     for i in range(numero_da_cidade):
         num = 0
-        for j in range(len(dados_cidades[i])):
-            pass
-            
+        cidade_menor_ao_maior_consumo = []
+        print(cidade_menor_ao_maior_consumo)
+        for j in range(len(dados_cidades[i])):    
+            cidade_menor_ao_maior_consumo.append(max(dados_cidades[i]))
+            print(cidade_menor_ao_maior_consumo)
+            print(max(dados_cidades[i]))
+            dados_cidades[i].remove(max(dados_cidades[i]))
+        dados_reorganizados.append(cidade_menor_ao_maior_consumo)
+    print(dados_reorganizados)
